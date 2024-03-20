@@ -1,0 +1,64 @@
+header {
+    background-color: rgb(84, 138, 255);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    width: 98vw;
+    height: 110px;
+}
+.logo {
+    width: 100px;
+    height: 100px;
+    margin-left: 10px;
+    margin-top: 4px;
+}
+h1 {
+    text-align: center;
+    color: white;
+    margin-top: -70px;
+    margin-right: 360px;
+}
+nav {
+    margin-left: 9px;
+    margin-top: 60px;
+    color: white;
+    word-spacing: 260px;
+}
+.nav1 {
+    background-color: rgb(84, 138, 255);
+    height: 70px;
+    margin-top: 45px;
+}
+.nav2 {
+    margin-left: 40px;
+    word-spacing: 0px;
+    margin-top: -68px;
+}
+.li1 {
+    color: rgb(0, 0, 0);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    height: 10000px;
+    width: 10px;
+    margin-left: 100px;
+}
+.li2 {
+    color: rgb(0, 0, 0);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    
+}
+.li3 {
+    color: rgb(0, 0, 0);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+.li4 {
+    color: rgb(0, 0, 0);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+.ul {
+    margin-left: 1100px;
+    color: white;
+}
+
