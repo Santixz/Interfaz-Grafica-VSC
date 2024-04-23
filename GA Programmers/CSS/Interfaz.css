@@ -1,0 +1,92 @@
+header {
+    background-color: rgb(14, 39, 90);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    width: 98vw;
+    height: 110px;
+}
+body {
+    background-image: url(IMAGENES/descarga\ \(1\).jpg);
+}
+footer {
+    margin-top: 671px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(236, 236, 236);
+    width: 98vw;
+    text-align: center;
+    word-spacing: 0px;
+    
+}
+.iconofooter {
+    height: 13px;
+    width: 13px;
+    border-image: 1px solid #000000;
+}
+.logo {
+    width: 100px;
+    height: 100px;
+    margin-left: 10px;
+    margin-top: 4px;
+}
+h1 {
+    text-align: center;
+    color: white;
+    margin-top: -70px;
+    margin-right: 100px;
+}
+nav {
+    margin-left: 9px;
+    margin-top: -50px;
+    color: white;
+    word-spacing: 260px;
+    background-color:rgb(14, 39, 90);
+    word-spacing: 100px;
+}
+.nav1 {
+    background-color: rgb(84, 138, 255);
+    height: 70px;
+    margin-top: 45px;
+}
+.nav2 {
+    margin-left: 600px;
+    word-spacing: 0px;
+    margin-top: -68px;
+}
+.li1 {
+    color: rgb(0, 0, 0);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    height: 10000px;
+    width: 10px;
+    margin-left: 200px;
+    padding: 50px;
+}
+.li2 {
+    color: rgb(0, 0, 0);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    padding: 50px;
+    
+}
+.li3 {
+    color: rgb(0, 0, 0);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    padding: 50px;
+}
+.li4 {
+    color: rgb(0, 0, 0);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    padding: 50px;
+}
+.ul {
+    margin-left: 1100px;
+    color: white;
+    margin-top: -10px;
+}
+ul {
+    margin-top: -30px;
+    margin: 5px;
+}
+
