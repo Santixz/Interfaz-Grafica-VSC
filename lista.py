@@ -148,12 +148,12 @@ else:
     print
 #Hacer una calculadora con division y con 0 aparece sintax error
     
-#a = int(input("¿Que numero quieres dividir?: "))
-#b = int(input("¿Por cual numero lo quieres dividir?: "))
-#if b == 0:
-    #print("Error - No se puede dividir entre cero")
-#resultado = float (a) / float (b)
-#print (f"Tu resultado es: {resultado}")
+a = int(input("¿Que numero quieres dividir?: "))
+b = int(input("¿Por cual numero lo quieres dividir?: "))
+if b == 0:
+    print("Error - No se puede dividir entre cero")
+resultado = float (a) / float (b)
+print (f"Tu resultado es: {resultado}")
 
 #Hacer un programa donde me diga el numero es par o impar
 num = int(input("Digite un numero: "))
