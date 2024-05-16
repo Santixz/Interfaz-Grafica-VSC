@@ -30,7 +30,7 @@
 #suma = n * (n + 1) / 2
 #print (f"El resultado es: {suma}")
 
-# Hacer un programa donde el usuario ingrese el peso en kg la estatura en cm y que luego de el indice de masa corporal
+#Hacer un programa donde el usuario ingrese el peso en kg la estatura en cm y que luego de el indice de masa corporal
 #kg = float (input("Digite su peso en kg: "))
 #mts = float (input ("Digite su altura en metros: "))
 #imc = float(kg) / float(mts)**2
@@ -38,7 +38,7 @@
 
 #Una carniceria es famosa por 2 productos hamburguesas de pollo y de cerdo les cobra por peso calcular el peso de las hamburguesas de cerdo es de 112 g y las de pollo 75g
 pesohampollo = 112
-pesohamcerdo = 75
+pesohamcerdo = 75        
 
 cantidadhampollo = float (input("Digite el numero de hamburguesas de pollo: "))
 cantidadhamcerdo = float (input("Digite el numero de hamburguesas de cerdo: "))
