@@ -10,31 +10,31 @@ db_config = {
     'database':'ga_programmers'
 }
 
-def insertar_usuario(nombre, apellido, email, password):
+def insertar_usuario(nombre, apellido, email, contrasena):
     conn = mysql.connector.connect(**db_config)
     cursor = conn.cursor()
-    cursor.execute('INSERT INTO tbusers (nombre, apellido, email, password) VALUES (%s, %s, %s, %s)', (nombre, apellido, email, password))
+    cursor.execute('INSERT INTO tbusers (nombre, apellido, email, contrasena) VALUES (%s, %s, %s, %s)', (nombre, apellido, email, contrasena))
     conn.commit()
     conn.close()
-
-def obtener_usuario():
-    conn = mysql.connector.connect(**db_config)
-    cursor = conn.cursor()
-    cursor.execute('SELECT id, nombre, apellido, email FROM tbusers')
-    users = cursor.fetchall()
-    conn.close
-    return users
 
 @app.route('/')
 def formulario():
     return render_template ('registrarse.html')
 
+def obtener_usuario():
+    conn = mysql.connector.connect(**db_config)
+    cursor = conn.cursor()
+    cursor.execute('SELECT idusers, nombre, apellido, email FROM tbusers')
+    users = cursor.fetchall()
+    conn.close
+    return users
+
 @app.route('/procesar_formulario', methods=['POST'])
 def procesar_formulario():
     nombre = request.form ['nombre']
-    apellido = request.form ['apeliido']
+    apellido = request.form ['apellido']
     email = request.form ['email']
-    contrasena = request.form ['password']
+    contrasena = request.form ['contrasena']
     insertar_usuario(nombre, apellido, email, contrasena)
     return redirect (url_for('exito'))
 
@@ -43,14 +43,14 @@ def mostrar_usuario():
     users = obtener_usuario()
     return render_template('users.html', usuarios=users)
 
-@app.route ('/eliminar_usuarios/<int:id>', methods = ['POST'])
+@app.route ('/eliminar_usuario/<int:id>', methods = ['POST'])
 def eliminar_usuario(id):
     conn = mysql.connector.connect (**db_config)
     cursor = conn.cursor()
     cursor.execute ('DELETE FROM tbusers WHERE id = %s', (id))
     conn.commit
     conn.close
-    return redirect (url_for('mostrar_usuario'))
+    return redirect(url_for('mostrar_usuario'))
 
 @app.route ('/exito')
 def exito():
