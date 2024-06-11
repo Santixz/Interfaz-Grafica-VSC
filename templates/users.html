@@ -13,8 +13,10 @@
             <th>Apellido</th>
             <th>Email</th>
             <th>Contraseña</th>
+            <th>Eliminar Usuario</th>
+            <th>Actualizar</th>
         </tr>
-        {% for tbusers in tbusers %}
+        {% for tbuser in tbusers %}
         <tr>
             <td>{{ usuario[0] }}</td>
             <td>{{ usuario[1] }}</td>
@@ -25,6 +27,10 @@
                 <form action ="{{ url_for('eliminar_usuarios', id=usuario[0]) }}" method="post">
                 <input type="submit" value="Eliminar">
                 </form>
+            </td>
+            <td>
+                <form action="{{ url_for('actualizar_usuario', id=usuario[0]) }}" method="get"></form>
+                <input type="submit" value="Actualizar">
             </td>
         </tr>
         {% endfor %}
