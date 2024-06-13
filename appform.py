@@ -62,6 +62,7 @@ def procesar_formulario():
     nombre = request.form['nombre']
     apellido = request.form['apellido']
     fecha = request.form['fecha']
+   # rol = request.form['rol']
     email = request.form['email']
     contrasena = request.form['contrasena']
 
