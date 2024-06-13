@@ -31,6 +31,7 @@ body {
 h1 {
     text-align: center;
     margin: 30px;
+    color: white;
 }
 .form-container {
     display: grid;
@@ -102,7 +103,7 @@ select {
   height: 50px;
 }
 body {
-  background-image: url(/Interfaz-Grafica-VSC/static/IMAGENES/vecteezy_abstract-luxury-glowing-lines-curved-overlapping-on-dark_11545805.jpg);
+  background-image: url(/static/IMAGENES/vecteezy_abstract-luxury-glowing-lines-curved-overlapping-on-dark_11545805.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }

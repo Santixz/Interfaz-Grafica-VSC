@@ -1,0 +1,49 @@
+body {
+    background-image: url(/static/IMAGENES/entradaq.jpeg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;  
+}
+.navbar {
+    background-color: rgb(3, 36, 81);
+    
+}
+.dropdown-menu {
+    background-color: rgb(4, 37, 82);
+
+}
+#contenido{
+    width: 60%;
+    margin: 10% auto;
+}
+.mensaje{
+    gap: 6px;
+    background-color: white;
+    width: 1100px;
+    height: 500px;
+    margin: 30px;
+    float: center;
+    border:5px solid rgb(255, 255, 255);
+    text-align: center;
+    font-size: 20px;
+    color:rgb(255, 255, 255);
+    font-weight: bold;
+    border-radius: 30px;
+    transition: 0.6s;
+
+}
+.mensaje:hover{
+    position: relative;
+      left: 16px;
+      top: 10px;
+      background-color: rgb(255, 255, 255);
+      transform: translateX(-5px) translateY(6px); 
+}
+.flexbox{
+    color: rgb(3, 36, 81);
+    display: flex;
+    font-size: 250%;
+    text-align: center;
+    
+}
