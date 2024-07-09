@@ -11,7 +11,7 @@ db_config = {
 }
 
 
-def insertar_usuario(nombre, apellido, fecha, cargo, email, contrasena):
+def insertar_usuario(nombre, apellido, fecha, labor, email, contrasena):
     try: 
 
         conn = mysql.connector.connect(**db_config)
@@ -20,7 +20,7 @@ def insertar_usuario(nombre, apellido, fecha, cargo, email, contrasena):
         cursor= conn.cursor()
 
 
-        cursor.execute('INSERT INTO usuarios (nombre, apellido, fecha, cargo, email, contrasena) VALUES (%s, %s, %s, %s, %s, %s)', (nombre, apellido, fecha, cargo, email, contrasena))
+        cursor.execute('INSERT INTO usuarios (nombre, apellido, fecha, labor, email, contrasena) VALUES (%s, %s, %s, %s, %s, %s)', (nombre, apellido, fecha, labor, email, contrasena))
 
 
         conn.commit()
@@ -62,15 +62,15 @@ def procesar_formulario():
     nombre = request.form['nombre']
     apellido = request.form['apellido']
     fecha = request.form['fecha']
-    cargo = request.form['cargo']
+    labor = request.form['labor']
     email = request.form['email']
     contrasena = request.form['contrasena']
 
-    if not nombre or not apellido or not fecha or not cargo or not email or not contrasena:
+    if not nombre or not apellido or not fecha or not labor or not email or not contrasena:
         flash('Todos los campos son obligatorios.')
         return redirect(url_for('registrarse'))
     
-    insertar_usuario(nombre, apellido, fecha, cargo, email, contrasena)
+    insertar_usuario(nombre, apellido, fecha, labor, email, contrasena)
 
     return redirect(url_for('exito'))
 
