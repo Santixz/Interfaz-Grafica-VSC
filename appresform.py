@@ -11,16 +11,16 @@ db_config = {
 }
 
 
-def insertar_usuario(nombre, apellido, fecha, email, contrasena):
+def insertar_usuario(nombre, apellido, fecha, labor, email, contrasena):
     try: 
 
         conn = mysql.connector.connect(**db_config)
 
 
-        cursor= conn.cursor()
+        cursor = conn.cursor()
 
 
-        cursor.execute('INSERT INTO usuarios (nombre, apellido, fecha, email, contrasena) VALUES (%s, %s, %s, %s, %s)', (nombre, apellido, fecha, email, contrasena))
+        cursor.execute('INSERT INTO tbusuarios (nombre, apellido, fecha, labor, email, contrasena) VALUES (%s, %s, %s, %s, %s, %s)', (nombre, apellido, fecha, labor, email, contrasena))
 
 
         conn.commit()
@@ -44,11 +44,11 @@ def obtener_usuarios():
         conn = mysql.connector.connect(**db_config)
         cursor = conn.cursor()
         cursor.execute ('SELECT id, nombre, apellido, email, contrasena FROM tbusuarios')
-        usuarios = cursor.fetchall()
-        return usuarios
+        tbusuarios = cursor.fetchall()
+        return tbusuarios
     except mysql.connector.Error as err:
         print(f"Error: {err}")
-        flash('Error al obtener los usuarios.')
+        flash('Error al obtener los usuarios.') 
         return []
     finally:
         conn.close()
@@ -62,26 +62,18 @@ def procesar_formulario():
     nombre = request.form['nombre']
     apellido = request.form['apellido']
     fecha = request.form['fecha']
+    labor = request.form['labor']
     email = request.form['email']
     contrasena = request.form['contrasena']
 
-    if not nombre or not apellido or not fecha or not email or not contrasena:
+    if not nombre or not apellido or not fecha or not labor or not email or not contrasena:
         flash('Todos los campos son obligatorios.')
         return redirect (url_for('registrarse.html'))
     
-    insertar_usuario(nombre, apellido, fecha, email, contrasena)
+    insertar_usuario(nombre, apellido, fecha, labor, email, contrasena)
 
     return redirect (url_for('exito'))
 
-@app.route('/registrarse', methods = ['GET', 'POST'])
-def labor():
-    if request.method == 'POST':
-        labor = request.form ['labor']
-        cursor.execute('INSERT INTO tbusuarios (nombre, apellido, fecha, labor, email, contrasena) VALUES (%s, %s, %s, %s, %s,%s)')
-        db_config.commit()
-        return redirect('/')
-    return render_template ('registrarse.html')
-    
 
 @app.route('/usuarios')
 def mostrar_usuarios():
@@ -93,21 +85,21 @@ def eliminar_usuario(id):
     try:
         conn = mysql.connector.connect(**db_config)
         cursor = conn.cursor()
-        cursor.execute ('DELETE FROM usuarios WHERE id = %s' , (id,))
+        cursor.execute ('DELETE FROM tbusuarios WHERE id = %s' , (id,))
         conn.commit()
     except mysql.connector.Error as err:
         print(f"Error al eliminar el usuario. {err}")
         flash('Error al eliminar el usuario.')
     finally:
         conn.close()
-    return redirect(url_for('mostrar_usuarios'))
+    return redirect(url_for('usuarios.html'))
 
-@app.route('/actualizar_usuario/<int:id>' , methods=['GET'])
+@app.route('/actualizar_usuarios/<int:id>' , methods=['GET'])
 def mostrar_registrarse_actualizar_usuario(id):
     try:
         conn = mysql.connector.connect (**db_config)
         cursor = conn.cursor()
-        cursor.execute ('SELECT nombre, email FROM usuarios WHERE id = %s' , (id,))
+        cursor.execute ('SELECT nombre, email FROM tbusuarios WHERE id = %s' , (id,))
         usuario = cursor.fetchone ()
     except mysql.connector.Error as err:
         print(f"Error: {err}")
@@ -120,8 +112,8 @@ def mostrar_registrarse_actualizar_usuario(id):
     else:
         return redirect(url_for('mostrar_usuarios'))
     
-@app.route('/actualizar_usuario/<int:id>' , methods = ['POST'])
-def actualizar_usuario(id):
+@app.route('/actualizar_usuarios/<int:id>' , methods = ['POST'])
+def actualizar_usuarios(id):
     nuevo_nombre = request.form ['nuevo_nombre']
     nuevo_apellido = request.form['nuevo_apellido']
     nuevo_email = request.form ['nuevo_email']
@@ -134,14 +126,14 @@ def actualizar_usuario(id):
     try:
         conn = mysql.connector.connect (**db_config)
         cursor = conn.cursor()
-        cursor.execute ('UPDATE usuarios SET nombre = %s, apellido = %s, email = %s, contrasena = %s WHERE id = %s' , (nuevo_nombre, nuevo_apellido, nuevo_email, nueva_contrasena, id))
+        cursor.execute ('UPDATE tbusuarios SET nombre = %s, apellido = %s, email = %s, contrasena = %s WHERE id = %s' , (nuevo_nombre, nuevo_apellido, nuevo_email, nueva_contrasena, id))
         conn.commit()
     except mysql.connector.Error as err:
         print (f"Error: {err}")
         flash ('Error al actualizar el usuario.')
     finally:
         conn.close()
-    return redirect(url_for('mostrar_usuarios'))
+    return redirect(url_for('usuarios.html'))
 
 @app.route('/exito')
 def exito():
