@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, flash, redirect, url_for
 import mysql.connector
 
 app = Flask(__name__)
@@ -11,7 +11,7 @@ db_config = {
 }
 
 
-def insertar_usuario(nombre, apellido, fecha, labor, email, contrasena):
+def insertar_usuario(nombre, apellido, fecha, email, contrasena):
     try: 
 
         conn = mysql.connector.connect(**db_config)
@@ -20,7 +20,7 @@ def insertar_usuario(nombre, apellido, fecha, labor, email, contrasena):
         cursor= conn.cursor()
 
 
-        cursor.execute('INSERT INTO usuarios (nombre, apellido, fecha, labor, email, contrasena) VALUES (%s, %s, %s, %s, %s, %s)', (nombre, apellido, fecha, labor, email, contrasena))
+        cursor.execute('INSERT INTO usuarios (nombre, apellido, fecha, email, contrasena) VALUES (%s, %s, %s, %s, %s)', (nombre, apellido, fecha, email, contrasena))
 
 
         conn.commit()
@@ -43,7 +43,7 @@ def obtener_usuarios():
     try:
         conn = mysql.connector.connect(**db_config)
         cursor = conn.cursor()
-        cursor.execute ('SELECT id, nombre, apellido, email, contrasena FROM usuarios')
+        cursor.execute ('SELECT id, nombre, apellido, email, contrasena FROM tbusuarios')
         usuarios = cursor.fetchall()
         return usuarios
     except mysql.connector.Error as err:
@@ -57,22 +57,31 @@ def obtener_usuarios():
 def Registrarse ():
     return render_template('registrarse.html')
 
-@app.route('/procesar_formulario', methods=['POST'])
+@app.route('/registrarse', methods=['POST'])
 def procesar_formulario():
     nombre = request.form['nombre']
     apellido = request.form['apellido']
     fecha = request.form['fecha']
-    labor = request.form['labor']
     email = request.form['email']
     contrasena = request.form['contrasena']
 
-    if not nombre or not apellido or not fecha or not labor or not email or not contrasena:
+    if not nombre or not apellido or not fecha or not email or not contrasena:
         flash('Todos los campos son obligatorios.')
-        return redirect(url_for('registrarse'))
+        return redirect (url_for('registrarse.html'))
     
-    insertar_usuario(nombre, apellido, fecha, labor, email, contrasena)
+    insertar_usuario(nombre, apellido, fecha, email, contrasena)
 
-    return redirect(url_for('exito'))
+    return redirect (url_for('exito'))
+
+@app.route('/registrarse', methods = ['GET', 'POST'])
+def labor():
+    if request.method == 'POST':
+        labor = request.form ['labor']
+        cursor.execute('INSERT INTO tbusuarios (nombre, apellido, fecha, labor, email, contrasena) VALUES (%s, %s, %s, %s, %s,%s)')
+        db_config.commit()
+        return redirect('/')
+    return render_template ('registrarse.html')
+    
 
 @app.route('/usuarios')
 def mostrar_usuarios():
