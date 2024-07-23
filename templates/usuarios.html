@@ -24,13 +24,13 @@
             <td>{{ usuario[3] }}</td>
             <td>{{ usuario[4] }}</td>
             <td>
-                <form action ="{{ url_for('eliminar_usuario', id=usuario[0]) }}" method="post">
-                <input type="submit" value="Eliminar">
+                <form action="{{ url_for('eliminar_usuario', id=usuario[0]) }}" method="post">
+                    <input type="submit" value="Eliminar">
                 </form>
             </td>
             <td>
-                <form action="{{ url_for('actualizar_usuario', id=usuario[0]) }}" method="get">
-                <input type="submit" value="Actualizar">
+                <form action="{{ url_for('mostrar_actualizar_usuario', id=usuario[0]) }}" method="get">
+                    <input type="submit" value="Actualizar">
                 </form>
             </td>
         </tr>

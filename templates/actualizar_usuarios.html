@@ -6,22 +6,22 @@
     <title>Actualizar Usuario</title>
 </head>
 <body>
-  <h1>Actualizar Usuarios</h1>
-  <form action="{{url_for('actualizar_usuario', id=id) }}" method="post">
+  <h1>Actualizar Usuario</h1>
+  <form action="{{ url_for('actualizar_usuarios', id=id) }}" method="post">
     <label for="nuevo_nombre">Nuevo Nombre:</label>
-    <input type="text" id="nuevo_nombre" name="nuevo_nombre" value="{{ nombre }}">
+    <input type="text" id="nuevo_nombre" name="nuevo_nombre" value="{{ nombre }}" required>
     <br>
     <label for="nuevo_apellido">Nuevo Apellido:</label>
-    <input type="text" id="nuevo_apellido" name="nuevo_apellido" value="{{ apellido }}">
+    <input type="text" id="nuevo_apellido" name="nuevo_apellido" value="{{ apellido }}" required>
     <br>
     <label for="nuevo_email">Nuevo Email:</label>
-    <input type="email" id="nuevo_email" name="nuevo_email" value="{{ email }}">
+    <input type="email" id="nuevo_email" name="nuevo_email" value="{{ email }}" required>
     <br>
     <label for="nueva_contrasena">Nueva Contraseña:</label>
-    <input type="password" id="nueva_contrasena" name="nueva_contrasena">
+    <input type="password" id="nueva_contrasena" name="nueva_contrasena" placeholder="*********" required>
     <br>
     <input type="submit" value="Actualizar">
   </form>
   <a href="{{ url_for('mostrar_usuarios') }}">Volver</a>
-</body> 
+</body>
 </html>
