@@ -5,7 +5,11 @@ body {
     background-attachment: fixed;
     height: 100vh;
   }
+  label {
+    color: black;
+  }
   .form-container {
+    color: white;
       height: 500px;
       width: 300px;
       position: absolute;
