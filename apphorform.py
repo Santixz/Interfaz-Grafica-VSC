@@ -30,3 +30,6 @@ def insertar_curso():
         return redirect (url_for('horariosformulario.html'))
     procesar_curso(curso, jornada)
     return redirect (url_for('imagenesdehorarios.html'))
+
+if __name__ == '__main__':
+    app.run(debug=True)
