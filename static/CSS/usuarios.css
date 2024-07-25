@@ -1,0 +1,13 @@
+body {
+    background-image: url(../imgs/vecteezy_abstract-luxury-glowing-lines-curved-overlapping-on-dark_11545805.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.table {
+    border-radius: solid 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

@@ -2,7 +2,13 @@ body {
     background-image: url(IMAGENES/vecteezy_abstract-luxury-glowing-lines-curved-overlapping-on-dark_11545805.jpg);
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     height: 100vh;
+}
+.offcanvas-body {
+    background-color: rgba(14, 39, 90);
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 .bg-blue{
     background-color: rgba(0, 0, 0, 0.2);

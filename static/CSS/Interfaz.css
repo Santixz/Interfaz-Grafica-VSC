@@ -21,7 +21,9 @@ footer {
     word-spacing: 0px;
 }
 .offcanvas-body {
-    background-color:  n   ;
+    background-color: rgba(14, 39, 90);
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 .iconofooter {
     height: 13px;
@@ -145,11 +147,6 @@ ul {
 h2 {
   margin-right: 200px;
   margin-left: 200px;
-}
-h1 {
-  margin-right: 200px;
-  margin-left: 200px;
-  color: rgb(253, 253, 255);
 }
 .infoinst {
   margin-top: 120px;

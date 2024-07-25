@@ -2,6 +2,7 @@ body {
   background-image: url(../static/imgs/vecteezy_abstract-luxury-glowing-lines-curved-overlapping-on-dark_11545805.jpg);
   background-repeat: no-repeat; 
   background-size: cover;
+  background-attachment: fixed;
   height: 100vh;
 }
 .form-check-label {

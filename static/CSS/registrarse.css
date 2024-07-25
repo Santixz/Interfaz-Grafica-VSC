@@ -32,6 +32,7 @@ h1 {
     display: grid;
     grid-template-rows: auto 1fr auto;
     width: 350px;
+    color: white;
 }
 .form {
   display: flex;
@@ -101,5 +102,6 @@ body {
   background-image: url(../imgs/vecteezy_abstract-luxury-glowing-lines-curved-overlapping-on-dark_11545805.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
 }
 
