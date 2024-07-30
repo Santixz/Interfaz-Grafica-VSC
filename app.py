@@ -1,17 +1,17 @@
-from flask import Flask, render_template, request, redirect, session, url_for
+from flask import Flask, render_template, request, redirect, url_for, session
 import mysql.connector
 from flask_session import Session
 
 app = Flask(__name__)
+
 app.secret_key = 'tu_clave_secreta_aqui'
-app.config['SESSION TYPE'] = 'filesystem'
-Session(app)
+app.config['SESSION_TYPE'] = 'filesystem'
+Session (app)
 
 db = mysql.connector.connect (
-
     host="localhost",
-    user="admin"
-    password="admin2024"
+    user="admin",
+    password="admin2024",
     database="ga_programmers"
 )
 
@@ -23,17 +23,24 @@ def index():
     tbusuarios = cursor.fetchall()
     return render_template('index.html', tbusuarios=tbusuarios)
 
+
 @app.route('/registrarse', methods = ['GET', 'POST'])
 def registrarse():
     if request.method == 'POST':
+        nombre = ['nombre']
+        apellido = ['apellido']
+        fecha = ['fecha']
+        labor = ['labor']
         email = request.form['email']
         contrasena = request.form['contrasena']
-        cursor.execute ("INSERT INTO tbusuarios (email, contrasena) VALUES (%s, %s)",(email, contrasena))
+        concontrasena = request.form ['concontrasena']
+        cursor.execute ("INSERT INTO tbusuarios (nombre, apellido, fecha, labor, email, contrasena, concontrasena) VALUES (%s, %s, %s, %s, %s, %s, %s)",(nombre, apellido, fecha, labor, email, contrasena, concontrasena))
         db.commit()
         return redirect('/')
     return render_template ('index.html')
-@app.route('/login', methods = ['GET', 'POST'])
-def login():
+
+@app.route('/iniciosesion', methods = ['GET', 'POST'])
+def iniciosesion():
     if request.method == 'POST':
         email = request.form['email']
         contrasena = request.form['contrasena']

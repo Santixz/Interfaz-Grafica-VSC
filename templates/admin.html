@@ -98,8 +98,41 @@
                     </li> 
                     </li>
                     <li class="nav-item dropdown">
-                        <a href="../templates/usuarios.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             Usuarios
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <table border="2" class="table">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nombre</th>
+                                    <th>Apellido</th>
+                                    <th>Email</th>
+                                    <th>Contraseña</th>
+                                    <th>Eliminar Usuario</th>
+                                    <th>Actualizar</th>
+                                </tr>
+                                {% for usuario in usuarios %}
+                                <tr>
+                                    <td>{{ usuario[0] }}</td>
+                                    <td>{{ usuario[1] }}</td>
+                                    <td>{{ usuario[2] }}</td>
+                                    <td>{{ usuario[3] }}</td>
+                                    <td>{{ usuario[4] }}</td>
+                                    <td>
+                                        <form action="{{ url_for('eliminar_usuario', id=usuario[0]) }}" method="post">
+                                            <input type="submit" value="Eliminar">
+                                        </form>
+                                    </td>
+                                    <td>
+                                        <form action="{{ url_for('mostrar_actualizar_usuario', id=usuario[0]) }}" method="get">
+                                            <input type="submit" value="Actualizar">
+                                        </form>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </table>
+                        </ul>
                     </a>
                     </li>
                     </li>

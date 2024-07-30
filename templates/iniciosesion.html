@@ -18,7 +18,7 @@
     <div class="login">
         <div class="form-container">
           <img src="../static/imgs/apple-icon-76x76.png" alt="logo" class="logo">
-          <form action="/login" method="post" class="form">
+          <form action="{{ url_for (' iniciosesion.html ') }}" method="post"  class="form">
             <div class="form-floating mb-3">
               <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
               <label for="floatingInput">Correo electronico</label>
